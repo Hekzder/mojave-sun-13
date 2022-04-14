@@ -40,20 +40,21 @@ SUBSYSTEM_DEF(parallax)
 		if(!istype(movable_eye))
 			continue
 
+<<<<<<< HEAD
 		while(isloc(movable_eye.loc) && !isturf(movable_eye.loc))
 			movable_eye = movable_eye.loc
 		//get the last movable holding the mobs eye
+=======
+		for (movable_eye; isloc(movable_eye.loc) && !isturf(movable_eye.loc); movable_eye = movable_eye.loc);
+>>>>>>> parent of 8cbd42cf37 (Fixes Massive Radio Overtime, Implements a Spatial Grid System for Faster Searching Over Areas (#61422))
 
 		if(movable_eye == processing_client.movingmob)
 			if (MC_TICK_CHECK)
 				return
 			continue
-
-		//eye and the last recorded eye are different, and the last recorded eye isnt just the clients mob
 		if(!isnull(processing_client.movingmob))
 			LAZYREMOVE(processing_client.movingmob.client_mobs_in_contents, processing_client.mob)
 		LAZYADD(movable_eye.client_mobs_in_contents, processing_client.mob)
-
 		processing_client.movingmob = movable_eye
 		if (MC_TICK_CHECK)
 			return

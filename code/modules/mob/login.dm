@@ -62,7 +62,12 @@
 	if(!client)
 		return FALSE
 
+<<<<<<< HEAD
 	enable_client_mobs_in_contents(client)
+=======
+	//We do this here to prevent hanging refs from ghostize or whatever, since if we were in another mob before this'll take care of it
+	clear_client_in_contents()
+>>>>>>> parent of 8cbd42cf37 (Fixes Massive Radio Overtime, Implements a Spatial Grid System for Faster Searching Over Areas (#61422))
 
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 

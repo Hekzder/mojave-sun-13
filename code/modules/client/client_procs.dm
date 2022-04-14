@@ -533,7 +533,14 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 			send2adminchat("Server", "[cheesy_message] (No admins online)")
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
+<<<<<<< HEAD
 
+=======
+	if(movingmob != null)
+		movingmob.client_mobs_in_contents -= mob
+		UNSETEMPTY(movingmob.client_mobs_in_contents)
+		movingmob = null
+>>>>>>> parent of 8cbd42cf37 (Fixes Massive Radio Overtime, Implements a Spatial Grid System for Faster Searching Over Areas (#61422))
 	active_mousedown_item = null
 	SSambience.remove_ambience_client(src)
 	SSmouse_entered.hovers -= src

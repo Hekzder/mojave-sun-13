@@ -332,8 +332,13 @@
 		return
 	if(chosen_channel == "Default") //Autospeak on whatever frequency to which the radio is set, usually Common.
 		radiomod = ";"
+<<<<<<< HEAD
 		chosen_channel += " ([radio.get_frequency()])"
 	if(chosen_channel == "None") //Prevents use of the radio for automatic annoucements.
+=======
+		Autochan += " ([radio.frequency])"
+	else if(Autochan == "None") //Prevents use of the radio for automatic annoucements.
+>>>>>>> parent of 8cbd42cf37 (Fixes Massive Radio Overtime, Implements a Spatial Grid System for Faster Searching Over Areas (#61422))
 		radiomod = ""
 	else //For department channels, if any, given by the internal radio.
 		for(var/key in GLOB.department_radio_keys)

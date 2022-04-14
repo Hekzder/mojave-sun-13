@@ -36,7 +36,8 @@
 	for (var/alert in alerts)
 		clear_alert(alert, TRUE)
 	if(observers?.len)
-		for(var/mob/dead/observe as anything in observers)
+		for(var/M in observers)
+			var/mob/dead/observe = M
 			observe.reset_perspective(null)
 	qdel(hud_used)
 	QDEL_LIST(client_colours)
@@ -408,9 +409,10 @@
 /**
  * Reset the attached clients perspective (viewpoint)
  *
- * reset_perspective(null) set eye to common default : mob on turf, loc otherwise
+ * reset_perspective() set eye to common default : mob on turf, loc otherwise
  * reset_perspective(thing) set the eye to the thing (if it's equal to current default reset to mob perspective)
  */
+<<<<<<< HEAD
 /mob/proc/reset_perspective(atom/new_eye)
 	if(!client)
 		return
@@ -421,16 +423,36 @@
 			if(new_eye != src)
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = new_eye
+=======
+/mob/proc/reset_perspective(atom/A)
+	if(client)
+		if(A)
+			if(ismovable(A))
+				//Set the the thing unless it's us
+				if(A != src)
+					client.perspective = EYE_PERSPECTIVE
+					client.eye = A
+				else
+					client.eye = client.mob
+					client.perspective = MOB_PERSPECTIVE
+			else if(isturf(A))
+				//Set to the turf unless it's our current turf
+				if(A != loc)
+					client.perspective = EYE_PERSPECTIVE
+					client.eye = A
+				else
+					client.eye = client.mob
+					client.perspective = MOB_PERSPECTIVE
+>>>>>>> parent of 8cbd42cf37 (Fixes Massive Radio Overtime, Implements a Spatial Grid System for Faster Searching Over Areas (#61422))
 			else
+				//Do nothing
+		else
+			//Reset to common defaults: mob if on turf, otherwise current loc
+			if(isturf(loc))
 				client.eye = client.mob
 				client.perspective = MOB_PERSPECTIVE
-
-		else if(isturf(new_eye))
-			//Set to the turf unless it's our current turf
-			if(new_eye != loc)
-				client.perspective = EYE_PERSPECTIVE
-				client.eye = new_eye
 			else
+<<<<<<< HEAD
 				client.eye = client.mob
 				client.perspective = MOB_PERSPECTIVE
 		else
@@ -446,6 +468,12 @@
 	/// Signal sent after the eye has been successfully updated, with the client existing.
 	SEND_SIGNAL(src, COMSIG_MOB_RESET_PERSPECTIVE)
 	return TRUE
+=======
+				client.perspective = EYE_PERSPECTIVE
+				client.eye = loc
+		return 1
+	SEND_SIGNAL(src, COMSIG_MOB_RESET_PERSPECTIVE)
+>>>>>>> parent of 8cbd42cf37 (Fixes Massive Radio Overtime, Implements a Spatial Grid System for Faster Searching Over Areas (#61422))
 
 /**
  * Examine a mob
@@ -1329,6 +1357,7 @@
 	SIGNAL_HANDLER
 	set_active_storage(null)
 
+<<<<<<< HEAD
 /// Cleanup proc that's called when a mob loses a client, either through client destroy or logout
 /// Logout happens post client del, so we can't just copypaste this there. This keeps things clean and consistent
 /mob/proc/become_uncliented()
@@ -1345,6 +1374,15 @@
 
 	clear_important_client_contents()
 	canon_client = null
+=======
+///Clears the client in contents list of our current "eye". Prevents hard deletes
+/mob/proc/clear_client_in_contents()
+	if(client?.movingmob) //In the case the client was transferred to another mob and not deleted.
+		client.movingmob.client_mobs_in_contents -= src
+		UNSETEMPTY(client.movingmob.client_mobs_in_contents)
+		client.movingmob = null
+>>>>>>> parent of 8cbd42cf37 (Fixes Massive Radio Overtime, Implements a Spatial Grid System for Faster Searching Over Areas (#61422))
+
 
 ///Shows a tgui window with memories
 /mob/verb/memory()

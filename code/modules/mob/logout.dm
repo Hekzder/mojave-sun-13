@@ -19,6 +19,13 @@
 	if(loc)
 		loc.on_log(FALSE)
 
+<<<<<<< HEAD
 	become_uncliented()
+=======
+	if(client)
+		for(var/foo in client.player_details.post_logout_callbacks)
+			var/datum/callback/CB = foo
+			CB.Invoke()
+>>>>>>> parent of 8cbd42cf37 (Fixes Massive Radio Overtime, Implements a Spatial Grid System for Faster Searching Over Areas (#61422))
 
 	return TRUE
