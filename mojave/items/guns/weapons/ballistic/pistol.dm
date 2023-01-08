@@ -6,6 +6,8 @@
 	inhand_icon_state = "police10mm"
 	mag_type = /obj/item/ammo_box/magazine/ms13/m10mm
 	fire_sound = 'mojave/sound/ms13weapons/10mm_fire_02.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/10mm/10mm_load.ogg'
+	unload_sound = 'mojave/sound/ms13weapons/gunsounds/10mm/10mm_unload.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 8
@@ -53,6 +55,8 @@
 	inhand_icon_state = "9mm"
 	mag_type = /obj/item/ammo_box/magazine/ms13/m9mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm2.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm_load.ogg'
+	unload_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm_unload.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 8
@@ -82,6 +86,8 @@
 	inhand_icon_state = "m12mm"
 	mag_type = /obj/item/ammo_box/magazine/ms13/m12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm1.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm_load.ogg'
+	unload_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm_unload.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.5 SECONDS
 	spread = 6
@@ -98,6 +104,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/ms13/m45
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto1.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm_load.ogg'
+	unload_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm_unload.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.45 SECONDS
 	spread = 8
@@ -121,6 +129,8 @@
 	inhand_icon_state = "deagle"
 	mag_type = /obj/item/ammo_box/magazine/ms13/deagle
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/44/44mag1.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm_load.ogg'
+	unload_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm_unload.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 6
@@ -137,6 +147,8 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m22
 	w_class = WEIGHT_CLASS_SMALL
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/22/22pistol.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm_load.ogg'
+	unload_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm_unload.ogg'
 	fire_delay = 0.45 SECONDS
 	spread = 8
 	recoil = 0.1
